@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/Metavers-Empires/GraphQL-Server/issues"
   },
-  "homepage": "https://github.com/Metavers-Empires/GraphQL-Server#readme"
+  "homepage": "https://github.com/Metavers-Empires/GraphQL-Server#readme",
+  "dependencies": {
+    "apollo-server": "^3.6.1",
+    "graphql": "^16.2.0"
+  }
 }
