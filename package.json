@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Metavers-Empires/GraphQL-Server/issues"
   },
-  "homepage": "https://github.com/Metavers-Empires/GraphQL-Server#readme"
+  "homepage": "https://github.com/Metavers-Empires/GraphQL-Server#readme",
+  "dependencies": {
+    "apollo": "^2.33.9",
+    "apollo-server": "^3.6.1",
+    "graphql": "^16.2.0"
+  }
 }
