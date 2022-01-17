@@ -17,8 +17,6 @@ dataSources:
       entities:
         - Token
         - User
-        - Create721RaribleProxy
-        - Create721RaribleUserProxy
         - OwnershipTransferred
       abis:
         - name: Token

@@ -29,11 +29,3 @@ type OwnershipTransferred @entity {
   balances: Int!
   price: Int!
 }
-
-type Create721RaribleProxy @entity {
-
-}
-
-type Create721RaribleUserProxy @entity {
-  
-}
