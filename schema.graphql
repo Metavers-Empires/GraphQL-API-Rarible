@@ -6,4 +6,7 @@ type Token @entity {
   metadataURI: String!
   creator: User!
   owner: User!
+  royalites: Int!
+  collection: String!
+  price: Int!
 }
