@@ -9,10 +9,14 @@ type Token @entity {
   royalites: Int!
   collection: String!
   price: Int!
+  balances: Int!
 }
 
 type User @entity {
   id: ID!
+  balances: Int!
+  collection: [Token!]! @deriverFrom(field: "Name of the Collection")
   tokens: [Token!]! @derivedFrom(field: "owner")
   created: [Token!]! @derivedFrom(field : "creator")
+  price: Int!
 }
