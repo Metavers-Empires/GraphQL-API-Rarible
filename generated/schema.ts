@@ -10,12 +10,12 @@ import {
   BigInt,
   BigDecimal
 } from "@graphprotocol/graph-ts";
-// Code generated from <RafaBlockDev> => Github
+
 export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-    // We have the elements we want to know about the Rarible Tokens
+
     this.set("name", Value.fromString(""));
     this.set("tokenID", Value.fromBigInt(BigInt.zero()));
     this.set("contentURI", Value.fromString(""));
@@ -232,7 +232,8 @@ export class OwnershipTransferred extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("owner", Value.fromString(""));
+    this.set("previousOwner", Value.fromString(""));
+    this.set("newOwner", Value.fromString(""));
     this.set("name", Value.fromString(""));
     this.set("balances", Value.fromI32(0));
     this.set("price", Value.fromI32(0));
@@ -266,13 +267,22 @@ export class OwnershipTransferred extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get owner(): string {
-    let value = this.get("owner");
+  get previousOwner(): string {
+    let value = this.get("previousOwner");
     return value!.toString();
   }
 
-  set owner(value: string) {
-    this.set("owner", Value.fromString(value));
+  set previousOwner(value: string) {
+    this.set("previousOwner", Value.fromString(value));
+  }
+
+  get newOwner(): string {
+    let value = this.get("newOwner");
+    return value!.toString();
+  }
+
+  set newOwner(value: string) {
+    this.set("newOwner", Value.fromString(value));
   }
 
   get name(): string {
