@@ -31,3 +31,5 @@ dataSources:
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
       file: ./src/mapping.ts
+
+      # Code generated from <RafaBlockDev> => Github

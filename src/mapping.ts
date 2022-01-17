@@ -8,7 +8,7 @@ import {
   Create721RaribleUserProxy,
   OwnershipTransferred
 } from "../generated/schema"
-
+// Code generated from <RafaBlockDev> => Github
 export function handleCreate721RaribleProxy(
   event: Create721RaribleProxyEvent
 ): void {
@@ -28,7 +28,7 @@ export function handleCreate721RaribleUserProxy(
   entity.proxy = event.params.proxy
   entity.save()
 }
-
+// Code generated from <RafaBlockDev> => Github
 export function handleOwnershipTransferred(
   event: OwnershipTransferredEvent
 ): void {

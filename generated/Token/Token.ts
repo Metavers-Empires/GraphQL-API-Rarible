@@ -33,7 +33,7 @@ export class Create721RaribleUserProxy extends ethereum.Event {
     return new Create721RaribleUserProxy__Params(this);
   }
 }
-
+// Code generated from <RafaBlockDev> => Github
 export class Create721RaribleUserProxy__Params {
   _event: Create721RaribleUserProxy;
 
@@ -361,7 +361,7 @@ export class RenounceOwnershipCall__Outputs {
     this._call = call;
   }
 }
-
+// Code generated from <RafaBlockDev> => Github
 export class TransferOwnershipCall extends ethereum.Call {
   get inputs(): TransferOwnershipCall__Inputs {
     return new TransferOwnershipCall__Inputs(this);

@@ -10,12 +10,12 @@ import {
   BigInt,
   BigDecimal
 } from "@graphprotocol/graph-ts";
-
+// Code generated from <RafaBlockDev> => Github
 export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-
+    // We have the elements we want to know about the Rarible Tokens
     this.set("name", Value.fromString(""));
     this.set("tokenID", Value.fromBigInt(BigInt.zero()));
     this.set("contentURI", Value.fromString(""));
