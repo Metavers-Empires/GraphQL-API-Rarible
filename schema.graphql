@@ -1,0 +1,15 @@
+type Create721RaribleProxy @entity {
+  id: ID!
+  proxy: Bytes! # address
+}
+
+type Create721RaribleUserProxy @entity {
+  id: ID!
+  proxy: Bytes! # address
+}
+
+type OwnershipTransferred @entity {
+  id: ID!
+  previousOwner: Bytes! # address
+  newOwner: Bytes! # address
+}

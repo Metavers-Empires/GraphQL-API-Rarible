@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Token
+    network: mainnet
+    source:
+      address: "0x6E42262978de5233C8d5B05B128C121fBa110DA4"
+      abi: Token
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Create721RaribleProxy
+        - Create721RaribleUserProxy
+        - OwnershipTransferred
+      abis:
+        - name: Token
+          file: ./abis/Token.json
+      eventHandlers:
+        - event: Create721RaribleProxy(address)
+          handler: handleCreate721RaribleProxy
+        - event: Create721RaribleUserProxy(address)
+          handler: handleCreate721RaribleUserProxy
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/mapping.ts
