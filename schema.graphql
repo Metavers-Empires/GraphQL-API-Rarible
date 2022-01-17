@@ -1,0 +1,31 @@
+type Token @entity {
+  name: String!
+  id: ID!
+  tokenID: BigInt!
+  contentURI: String!
+  metadataURI: String!
+  creator: User!
+  owner: User!
+  royalites: Int!
+  collection: String!
+  price: Int!
+  balances: Int!
+}
+
+type User @entity {
+  id: ID!
+  balances: Int!
+  collection: [Token!]! @deriverFrom(field: "Name of the Collection")
+  tokens: [Token!]! @derivedFrom(field: "owner")
+  created: [Token!]! @derivedFrom(field : "creator")
+  price: Int!
+}
+# Code generated from <RafaBlockDev> => Github
+type OwnershipTransferred @entity {
+  id: ID!
+  previousOwner: User!
+  newOwner: User!
+  name: String!
+  balances: Int!
+  price: Int!
+}
