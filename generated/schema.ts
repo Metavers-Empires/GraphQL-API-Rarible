@@ -11,34 +11,47 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Create721RaribleProxy extends Entity {
+export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("proxy", Value.fromBytes(Bytes.empty()));
+    this.set("name", Value.fromString(""));
+    this.set("tokenID", Value.fromBigInt(BigInt.zero()));
+    this.set("contentURI", Value.fromString(""));
+    this.set("metadataURI", Value.fromString(""));
+    this.set("creator", Value.fromString(""));
+    this.set("owner", Value.fromString(""));
+    this.set("royalites", Value.fromI32(0));
+    this.set("collection", Value.fromString(""));
+    this.set("price", Value.fromI32(0));
+    this.set("balances", Value.fromI32(0));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save Create721RaribleProxy entity without an ID"
-    );
+    assert(id != null, "Cannot save Token entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save Create721RaribleProxy entity with non-string ID. " +
+        "Cannot save Token entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("Create721RaribleProxy", id.toString(), this);
+      store.set("Token", id.toString(), this);
     }
   }
 
-  static load(id: string): Create721RaribleProxy | null {
-    return changetype<Create721RaribleProxy | null>(
-      store.get("Create721RaribleProxy", id)
-    );
+  static load(id: string): Token | null {
+    return changetype<Token | null>(store.get("Token", id));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
   }
 
   get id(): string {
@@ -50,44 +63,113 @@ export class Create721RaribleProxy extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get proxy(): Bytes {
-    let value = this.get("proxy");
-    return value!.toBytes();
+  get tokenID(): BigInt {
+    let value = this.get("tokenID");
+    return value!.toBigInt();
   }
 
-  set proxy(value: Bytes) {
-    this.set("proxy", Value.fromBytes(value));
+  set tokenID(value: BigInt) {
+    this.set("tokenID", Value.fromBigInt(value));
+  }
+
+  get contentURI(): string {
+    let value = this.get("contentURI");
+    return value!.toString();
+  }
+
+  set contentURI(value: string) {
+    this.set("contentURI", Value.fromString(value));
+  }
+
+  get metadataURI(): string {
+    let value = this.get("metadataURI");
+    return value!.toString();
+  }
+
+  set metadataURI(value: string) {
+    this.set("metadataURI", Value.fromString(value));
+  }
+
+  get creator(): string {
+    let value = this.get("creator");
+    return value!.toString();
+  }
+
+  set creator(value: string) {
+    this.set("creator", Value.fromString(value));
+  }
+
+  get owner(): string {
+    let value = this.get("owner");
+    return value!.toString();
+  }
+
+  set owner(value: string) {
+    this.set("owner", Value.fromString(value));
+  }
+
+  get royalites(): i32 {
+    let value = this.get("royalites");
+    return value!.toI32();
+  }
+
+  set royalites(value: i32) {
+    this.set("royalites", Value.fromI32(value));
+  }
+
+  get collection(): string {
+    let value = this.get("collection");
+    return value!.toString();
+  }
+
+  set collection(value: string) {
+    this.set("collection", Value.fromString(value));
+  }
+
+  get price(): i32 {
+    let value = this.get("price");
+    return value!.toI32();
+  }
+
+  set price(value: i32) {
+    this.set("price", Value.fromI32(value));
+  }
+
+  get balances(): i32 {
+    let value = this.get("balances");
+    return value!.toI32();
+  }
+
+  set balances(value: i32) {
+    this.set("balances", Value.fromI32(value));
   }
 }
 
-export class Create721RaribleUserProxy extends Entity {
+export class User extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("proxy", Value.fromBytes(Bytes.empty()));
+    this.set("balances", Value.fromI32(0));
+    this.set("collection", Value.fromStringArray(new Array(0)));
+    this.set("price", Value.fromI32(0));
   }
 
   save(): void {
     let id = this.get("id");
-    assert(
-      id != null,
-      "Cannot save Create721RaribleUserProxy entity without an ID"
-    );
+    assert(id != null, "Cannot save User entity without an ID");
     if (id) {
       assert(
         id.kind == ValueKind.STRING,
-        "Cannot save Create721RaribleUserProxy entity with non-string ID. " +
+        "Cannot save User entity with non-string ID. " +
           'Considering using .toHex() to convert the "id" to a string.'
       );
-      store.set("Create721RaribleUserProxy", id.toString(), this);
+      store.set("User", id.toString(), this);
     }
   }
 
-  static load(id: string): Create721RaribleUserProxy | null {
-    return changetype<Create721RaribleUserProxy | null>(
-      store.get("Create721RaribleUserProxy", id)
-    );
+  static load(id: string): User | null {
+    return changetype<User | null>(store.get("User", id));
   }
 
   get id(): string {
@@ -99,13 +181,49 @@ export class Create721RaribleUserProxy extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get proxy(): Bytes {
-    let value = this.get("proxy");
-    return value!.toBytes();
+  get balances(): i32 {
+    let value = this.get("balances");
+    return value!.toI32();
   }
 
-  set proxy(value: Bytes) {
-    this.set("proxy", Value.fromBytes(value));
+  set balances(value: i32) {
+    this.set("balances", Value.fromI32(value));
+  }
+
+  get collection(): Array<string> {
+    let value = this.get("collection");
+    return value!.toStringArray();
+  }
+
+  set collection(value: Array<string>) {
+    this.set("collection", Value.fromStringArray(value));
+  }
+
+  get tokens(): Array<string> {
+    let value = this.get("tokens");
+    return value!.toStringArray();
+  }
+
+  set tokens(value: Array<string>) {
+    this.set("tokens", Value.fromStringArray(value));
+  }
+
+  get created(): Array<string> {
+    let value = this.get("created");
+    return value!.toStringArray();
+  }
+
+  set created(value: Array<string>) {
+    this.set("created", Value.fromStringArray(value));
+  }
+
+  get price(): i32 {
+    let value = this.get("price");
+    return value!.toI32();
+  }
+
+  set price(value: i32) {
+    this.set("price", Value.fromI32(value));
   }
 }
 
@@ -114,8 +232,10 @@ export class OwnershipTransferred extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("previousOwner", Value.fromBytes(Bytes.empty()));
-    this.set("newOwner", Value.fromBytes(Bytes.empty()));
+    this.set("owner", Value.fromString(""));
+    this.set("name", Value.fromString(""));
+    this.set("balances", Value.fromI32(0));
+    this.set("price", Value.fromI32(0));
   }
 
   save(): void {
@@ -146,21 +266,39 @@ export class OwnershipTransferred extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get previousOwner(): Bytes {
-    let value = this.get("previousOwner");
-    return value!.toBytes();
+  get owner(): string {
+    let value = this.get("owner");
+    return value!.toString();
   }
 
-  set previousOwner(value: Bytes) {
-    this.set("previousOwner", Value.fromBytes(value));
+  set owner(value: string) {
+    this.set("owner", Value.fromString(value));
   }
 
-  get newOwner(): Bytes {
-    let value = this.get("newOwner");
-    return value!.toBytes();
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
   }
 
-  set newOwner(value: Bytes) {
-    this.set("newOwner", Value.fromBytes(value));
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get balances(): i32 {
+    let value = this.get("balances");
+    return value!.toI32();
+  }
+
+  set balances(value: i32) {
+    this.set("balances", Value.fromI32(value));
+  }
+
+  get price(): i32 {
+    let value = this.get("price");
+    return value!.toI32();
+  }
+
+  set price(value: i32) {
+    this.set("price", Value.fromI32(value));
   }
 }
