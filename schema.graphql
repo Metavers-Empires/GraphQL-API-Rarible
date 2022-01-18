@@ -37,6 +37,9 @@ type Create721RaribleProxy @entity {
   name: String!
   balances: Int!
   price: Int!
+  address: String!
+  proxy: Int!
+  property: Int!
 }
 type Create721RaribleUserProxy @entity {
   id: ID!
@@ -45,4 +48,7 @@ type Create721RaribleUserProxy @entity {
   name: String!
   balances: Int!
   price: Int!
+  address: String!
+  proxy: Int!
+  property: String!
 }

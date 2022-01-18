@@ -323,6 +323,9 @@ export class Create721RaribleProxy extends Entity {
     this.set("name", Value.fromString(""));
     this.set("balances", Value.fromI32(0));
     this.set("price", Value.fromI32(0));
+    this.set("address", Value.fromString(""));
+    this.set("proxy", Value.fromI32(0));
+    this.set("property", Value.fromI32(0));
   }
 
   save(): void {
@@ -400,6 +403,33 @@ export class Create721RaribleProxy extends Entity {
   set price(value: i32) {
     this.set("price", Value.fromI32(value));
   }
+
+  get address(): string {
+    let value = this.get("address");
+    return value!.toString();
+  }
+
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
+  }
+
+  get proxy(): i32 {
+    let value = this.get("proxy");
+    return value!.toI32();
+  }
+
+  set proxy(value: i32) {
+    this.set("proxy", Value.fromI32(value));
+  }
+
+  get property(): i32 {
+    let value = this.get("property");
+    return value!.toI32();
+  }
+
+  set property(value: i32) {
+    this.set("property", Value.fromI32(value));
+  }
 }
 
 export class Create721RaribleUserProxy extends Entity {
@@ -412,6 +442,9 @@ export class Create721RaribleUserProxy extends Entity {
     this.set("name", Value.fromString(""));
     this.set("balances", Value.fromI32(0));
     this.set("price", Value.fromI32(0));
+    this.set("address", Value.fromString(""));
+    this.set("proxy", Value.fromI32(0));
+    this.set("property", Value.fromString(""));
   }
 
   save(): void {
@@ -488,5 +521,32 @@ export class Create721RaribleUserProxy extends Entity {
 
   set price(value: i32) {
     this.set("price", Value.fromI32(value));
+  }
+
+  get address(): string {
+    let value = this.get("address");
+    return value!.toString();
+  }
+
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
+  }
+
+  get proxy(): i32 {
+    let value = this.get("proxy");
+    return value!.toI32();
+  }
+
+  set proxy(value: i32) {
+    this.set("proxy", Value.fromI32(value));
+  }
+
+  get property(): string {
+    let value = this.get("property");
+    return value!.toString();
+  }
+
+  set property(value: string) {
+    this.set("property", Value.fromString(value));
   }
 }
