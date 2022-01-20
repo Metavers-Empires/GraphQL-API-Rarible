@@ -17,7 +17,7 @@ type User @entity {
   balances: Int!
   collection: [Token!]! @deriverFrom(field: "Name of the Collection")
   tokens: [Token!]! @derivedFrom(field: "owner")
-  created: [Token!]! @derivedFrom(field : "creator")
+  created: [Token!]! @derivedFrom(field: "creator")
   price: Int!
 }
 # Code generated from <RafaBlockDev> => Github
@@ -28,4 +28,27 @@ type OwnershipTransferred @entity {
   name: String!
   balances: Int!
   price: Int!
+}
+
+type Create721RaribleProxy @entity {
+  id: ID!
+  previousOwner: User!
+  newOwner: User!
+  name: String!
+  balances: Int!
+  price: Int!
+  address: String!
+  proxy: Int!
+  property: Int!
+}
+type Create721RaribleUserProxy @entity {
+  id: ID!
+  previousOwner: User!
+  newOwner: User!
+  name: String!
+  balances: Int!
+  price: Int!
+  address: String!
+  proxy: Int!
+  property: String!
 }

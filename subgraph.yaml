@@ -22,10 +22,6 @@ dataSources:
         - name: Token
           file: ./abis/Token.json
       eventHandlers:
-        - event: Create721RaribleProxy(address)
-          handler: handleCreate721RaribleProxy
-        - event: Create721RaribleUserProxy(address)
-          handler: handleCreate721RaribleUserProxy
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred
       file: ./src/mapping.ts

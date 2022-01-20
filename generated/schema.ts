@@ -10,12 +10,12 @@ import {
   BigInt,
   BigDecimal
 } from "@graphprotocol/graph-ts";
-// Code generated from <RafaBlockDev> => Github
+
 export class Token extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
-    // We have the elements we want to know about the Rarible Tokens
+
     this.set("name", Value.fromString(""));
     this.set("tokenID", Value.fromBigInt(BigInt.zero()));
     this.set("contentURI", Value.fromString(""));
@@ -232,7 +232,8 @@ export class OwnershipTransferred extends Entity {
     super();
     this.set("id", Value.fromString(id));
 
-    this.set("owner", Value.fromString(""));
+    this.set("previousOwner", Value.fromString(""));
+    this.set("newOwner", Value.fromString(""));
     this.set("name", Value.fromString(""));
     this.set("balances", Value.fromI32(0));
     this.set("price", Value.fromI32(0));
@@ -266,13 +267,22 @@ export class OwnershipTransferred extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get owner(): string {
-    let value = this.get("owner");
+  get previousOwner(): string {
+    let value = this.get("previousOwner");
     return value!.toString();
   }
 
-  set owner(value: string) {
-    this.set("owner", Value.fromString(value));
+  set previousOwner(value: string) {
+    this.set("previousOwner", Value.fromString(value));
+  }
+
+  get newOwner(): string {
+    let value = this.get("newOwner");
+    return value!.toString();
+  }
+
+  set newOwner(value: string) {
+    this.set("newOwner", Value.fromString(value));
   }
 
   get name(): string {
@@ -300,5 +310,243 @@ export class OwnershipTransferred extends Entity {
 
   set price(value: i32) {
     this.set("price", Value.fromI32(value));
+  }
+}
+
+export class Create721RaribleProxy extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("previousOwner", Value.fromString(""));
+    this.set("newOwner", Value.fromString(""));
+    this.set("name", Value.fromString(""));
+    this.set("balances", Value.fromI32(0));
+    this.set("price", Value.fromI32(0));
+    this.set("address", Value.fromString(""));
+    this.set("proxy", Value.fromI32(0));
+    this.set("property", Value.fromI32(0));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save Create721RaribleProxy entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save Create721RaribleProxy entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("Create721RaribleProxy", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Create721RaribleProxy | null {
+    return changetype<Create721RaribleProxy | null>(
+      store.get("Create721RaribleProxy", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get previousOwner(): string {
+    let value = this.get("previousOwner");
+    return value!.toString();
+  }
+
+  set previousOwner(value: string) {
+    this.set("previousOwner", Value.fromString(value));
+  }
+
+  get newOwner(): string {
+    let value = this.get("newOwner");
+    return value!.toString();
+  }
+
+  set newOwner(value: string) {
+    this.set("newOwner", Value.fromString(value));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get balances(): i32 {
+    let value = this.get("balances");
+    return value!.toI32();
+  }
+
+  set balances(value: i32) {
+    this.set("balances", Value.fromI32(value));
+  }
+
+  get price(): i32 {
+    let value = this.get("price");
+    return value!.toI32();
+  }
+
+  set price(value: i32) {
+    this.set("price", Value.fromI32(value));
+  }
+
+  get address(): string {
+    let value = this.get("address");
+    return value!.toString();
+  }
+
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
+  }
+
+  get proxy(): i32 {
+    let value = this.get("proxy");
+    return value!.toI32();
+  }
+
+  set proxy(value: i32) {
+    this.set("proxy", Value.fromI32(value));
+  }
+
+  get property(): i32 {
+    let value = this.get("property");
+    return value!.toI32();
+  }
+
+  set property(value: i32) {
+    this.set("property", Value.fromI32(value));
+  }
+}
+
+export class Create721RaribleUserProxy extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+
+    this.set("previousOwner", Value.fromString(""));
+    this.set("newOwner", Value.fromString(""));
+    this.set("name", Value.fromString(""));
+    this.set("balances", Value.fromI32(0));
+    this.set("price", Value.fromI32(0));
+    this.set("address", Value.fromString(""));
+    this.set("proxy", Value.fromI32(0));
+    this.set("property", Value.fromString(""));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(
+      id != null,
+      "Cannot save Create721RaribleUserProxy entity without an ID"
+    );
+    if (id) {
+      assert(
+        id.kind == ValueKind.STRING,
+        "Cannot save Create721RaribleUserProxy entity with non-string ID. " +
+          'Considering using .toHex() to convert the "id" to a string.'
+      );
+      store.set("Create721RaribleUserProxy", id.toString(), this);
+    }
+  }
+
+  static load(id: string): Create721RaribleUserProxy | null {
+    return changetype<Create721RaribleUserProxy | null>(
+      store.get("Create721RaribleUserProxy", id)
+    );
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value!.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get previousOwner(): string {
+    let value = this.get("previousOwner");
+    return value!.toString();
+  }
+
+  set previousOwner(value: string) {
+    this.set("previousOwner", Value.fromString(value));
+  }
+
+  get newOwner(): string {
+    let value = this.get("newOwner");
+    return value!.toString();
+  }
+
+  set newOwner(value: string) {
+    this.set("newOwner", Value.fromString(value));
+  }
+
+  get name(): string {
+    let value = this.get("name");
+    return value!.toString();
+  }
+
+  set name(value: string) {
+    this.set("name", Value.fromString(value));
+  }
+
+  get balances(): i32 {
+    let value = this.get("balances");
+    return value!.toI32();
+  }
+
+  set balances(value: i32) {
+    this.set("balances", Value.fromI32(value));
+  }
+
+  get price(): i32 {
+    let value = this.get("price");
+    return value!.toI32();
+  }
+
+  set price(value: i32) {
+    this.set("price", Value.fromI32(value));
+  }
+
+  get address(): string {
+    let value = this.get("address");
+    return value!.toString();
+  }
+
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
+  }
+
+  get proxy(): i32 {
+    let value = this.get("proxy");
+    return value!.toI32();
+  }
+
+  set proxy(value: i32) {
+    this.set("proxy", Value.fromI32(value));
+  }
+
+  get property(): string {
+    let value = this.get("property");
+    return value!.toString();
+  }
+
+  set property(value: string) {
+    this.set("property", Value.fromString(value));
   }
 }
